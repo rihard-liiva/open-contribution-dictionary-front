@@ -23,13 +23,13 @@ describe('AppComponent', () => {
   it(`should have as title 'eng-est-dictionary-front'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('eng-est-dictionary-front');
+    expect(app.title).toEqual('eng-est-search-front');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('eng-est-dictionary-front app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('eng-est-search-front app is running!');
   });
 });

@@ -5,15 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { DictionaryComponent } from './dictionary/dictionary.component';
+import { SearchComponent } from './search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ResultTableComponent } from './result-table/result-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    DictionaryComponent
+    SearchComponent,
+    ResultTableComponent
   ],
   imports: [
     BrowserModule,
