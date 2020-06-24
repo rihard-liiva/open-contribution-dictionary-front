@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ResultTableComponent } from './result-table/result-table.component';
+import { AddEntryComponent } from './add-entry/add-entry.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { ResultTableComponent } from './result-table/result-table.component';
     NavbarComponent,
     FooterComponent,
     SearchComponent,
-    ResultTableComponent
+    ResultTableComponent,
+    AddEntryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

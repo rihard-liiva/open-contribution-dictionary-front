@@ -1,0 +1,70 @@
+<div class="text-center" id="add-entry">
+  <p>
+    <ngb-alert [dismissible]="false" type="info">
+      Would you like to contribute? Click
+      <button class="btn btn-link add-entry-button" (click)="open(addWord)"><Strong>HERE</Strong></button>
+      to add a new word or
+      <button class="btn btn-link add-entry-button" (click)="open(addLanguage)"><Strong>HERE</Strong></button>
+      to add a new language.
+    </ngb-alert>
+  </p>
+</div>
+
+<ng-template #addWord let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add an entry</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="input-group">
+        <label for="originatingWord">Word</label>
+        <input type="text" class="form-control" id="originatingWord">
+      </div>
+      <div class="input-group">
+        <select class="form-control language-select" id="originatingLanguage">
+          <option>Estonian</option>
+          <option>Russian</option>
+          <option>English</option>
+        </select>
+      </div>
+      <br>
+      <div class="input-group">
+        <label for="equivalentWord">Equivalent</label>
+        <input type="text" class="form-control" id="equivalentWord">
+      </div>
+      <div class="input-group">
+        <select class="form-control language-select" id="equivalentLanguage">
+          <option>Estonian</option>
+          <option>Russian</option>
+          <option>English</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Add Word</button>
+  </div>
+</ng-template>
+
+<ng-template #addLanguage let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add a language</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label>Language name in English</label>
+          <input type="text" class="form-control">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Add Language</button>
+  </div>
+</ng-template>

@@ -1,25 +1,42 @@
-<div class="row">
-  <div class="col">
+<div class="d-flex justify-content-between" id="labels-for-languages">
+  <p>Translate From</p>
+  <p>Translate To</p>
+</div>
+<div class="d-flex justify-content-between">
+  <div>
     <label for="originatingLanguage">
       <select class="form-control" id="originatingLanguage">
-        <option>Mustard</option>
-        <option>Ketchup</option>
-        <option>Relish</option>
+        <option>Estonian</option>
+        <option>Russian</option>
+        <option>English</option>
       </select>
     </label>
-
   </div>
-  <div class="col text-right">
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-secondary" id="dropdownBasic2" ngbDropdownToggle>Toggle dropdown</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem>Estonian</button>
-        <button ngbDropdownItem>English</button>
-      </div>
-    </div>
+  <div>
+    <button class="btn">
+      <i class="fas fa-exchange-alt"></i>
+    </button>
+  </div>
+  <div>
+    <label for="equivalentLanguage">
+      <select class="form-control" id="equivalentLanguage">
+        <option>Any</option>
+        <option>Estonian</option>
+        <option>Russian</option>
+        <option>English</option>
+      </select>
+    </label>
   </div>
 </div>
-
-<label for="typeahead-format">Search for a state:</label>
-<input id="typeahead-format" type="text" class="form-control" placeholder="Search for a word"/>
-<hr>
+<br>
+<!--<label for="typeahead-format"></label>-->
+<!--<input id="typeahead-format" type="text" class="form-control" placeholder="Search for a word"/>-->
+<div class="input-group">
+  <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search For A Word" id="example-search-input">
+  <span class="input-group-append">
+    <button class="btn btn-outline-secondary border-left-0 border" type="button">
+      <i class="fa fa-search"></i>
+    </button>
+  </span>
+</div>
+<br>
