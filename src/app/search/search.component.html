@@ -1,4 +1,25 @@
+<div class="row">
+  <div class="col">
+    <label for="originatingLanguage">
+      <select class="form-control" id="originatingLanguage">
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Relish</option>
+      </select>
+    </label>
+
+  </div>
+  <div class="col text-right">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-secondary" id="dropdownBasic2" ngbDropdownToggle>Toggle dropdown</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem>Estonian</button>
+        <button ngbDropdownItem>English</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <label for="typeahead-format">Search for a state:</label>
-<input id="typeahead-format" type="text" class="form-control"/>
+<input id="typeahead-format" type="text" class="form-control" placeholder="Search for a word"/>
 <hr>
