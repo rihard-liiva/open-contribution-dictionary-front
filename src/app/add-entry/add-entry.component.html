@@ -21,7 +21,7 @@
     <form (ngSubmit)="addWordToDictionary(addWordForm)" #addWordForm="ngForm">
       <div class="input-group">
         <label for="originatingWord">Word</label>
-        <input required type="text" class="form-control" id="originatingWord" [(ngModel)]="originatingWordInputField"
+        <input required type="text" pattern="[a-zA-Z]*" class="form-control" id="originatingWord" [(ngModel)]="originatingWordInputField"
                name="originatingWordInputField">
       </div>
       <div class="input-group">
@@ -36,7 +36,7 @@
       <br>
       <div class="input-group">
         <label for="equivalentWord">Equivalent</label>
-        <input required type="text" class="form-control" id="equivalentWord" [(ngModel)]="equivalentWordInputField"
+        <input required type="text" pattern="[a-zA-Z]*" class="form-control" id="equivalentWord" [(ngModel)]="equivalentWordInputField"
                name="equivalentWordInputField">
       </div>
       <div class="input-group">
@@ -66,7 +66,7 @@
     <form (ngSubmit)="addLanguageToDatabase(addLanguageForm)" #addLanguageForm="ngForm">
       <div class="form-group">
         <label>Language name in English</label>
-        <input required type="text" class="form-control" [(ngModel)]="languageNameInputField" name="languageNameInputField">
+        <input required type="text" pattern="[a-zA-Z]*" class="form-control" [(ngModel)]="languageNameInputField" name="languageNameInputField">
       </div>
       <div class="modal-footer" style="margin-top: 50px">
         <button type="submit" class="btn btn-outline-dark">Add Language</button>

@@ -67,7 +67,7 @@ export class AddEntryComponent implements OnInit {
         window.location.reload();
       });
     } else {
-      alert("Please fill all the fields")
+      alert("Please fill all the fields and fields cannot be blank and can only contain letters")
     }
   }
 
@@ -82,7 +82,7 @@ export class AddEntryComponent implements OnInit {
         alert("Language already exists")
       }
     } else {
-      alert("Please fill the field")
+      alert("Field cannot be blank and can only contain letters")
     }
   }
 
