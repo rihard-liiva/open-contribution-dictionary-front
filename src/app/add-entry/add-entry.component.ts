@@ -4,6 +4,9 @@ import {LanguageI} from '../models/language.model';
 import {LanguageService} from '../services/language.service';
 import {AddEntryService} from '../services/add-entry.service';
 import {NgForm} from '@angular/forms';
+import {HttpErrorResponse} from '@angular/common/http';
+import {throwError} from 'rxjs';
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-entry',
@@ -58,8 +61,7 @@ export class AddEntryComponent implements OnInit {
         originatingLanguage: this.languageService.getLanguageObjectByLanguageName(this.selectedOriginatingLanguage),
         equivalentLanguage: this.languageService.getLanguageObjectByLanguageName(this.selectedEquivalentLanguage)
       }
-
-      this.addEntryService.makePostRequestNewDictionaryEntry(dictionaryEntry).then(r => {
+      this.addEntryService.makePostRequestNewDictionaryEntry(dictionaryEntry).catch(catchError).then(r => {
         this.modalService.dismissAll()
         this.selectedEquivalentLanguage = null;
         window.location.reload();
@@ -72,7 +74,7 @@ export class AddEntryComponent implements OnInit {
   addLanguageToDatabase(ngForm: NgForm): void {
     if (ngForm.valid && ngForm.value["languageNameInputField"] != "") {
       if (!this.languageService.languageAlreadyExists(ngForm.value["languageNameInputField"])) {
-        this.addEntryService.makePostRequestNewLanguage({id: 0, languageName: this.languageService.capitalizeLanguage(ngForm.value["languageNameInputField"].toLowerCase())}).then(r => {
+        this.addEntryService.makePostRequestNewLanguage({id: 0, languageName: this.languageService.capitalizeLanguage(ngForm.value["languageNameInputField"].toLowerCase())}).then(res => {
           this.modalService.dismissAll();
           window.location.reload();
         })
@@ -83,4 +85,5 @@ export class AddEntryComponent implements OnInit {
       alert("Please fill the field")
     }
   }
+
 }

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {DictionaryEntryI} from '../models/dictionary-entry.model';
 import {LanguageI} from '../models/language.model';
+import {catchError} from 'rxjs/operators';
+import {throwError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
