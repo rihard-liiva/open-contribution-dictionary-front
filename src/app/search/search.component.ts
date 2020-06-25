@@ -56,5 +56,6 @@ export class SearchComponent implements OnInit {
 
   setSelectedEquivalentLanguage(language: string) {
     this.selectedEquivalentLanguage = language;
+    this.searchWord(" ");
   }
 }
