@@ -52,6 +52,7 @@ export class SearchComponent implements OnInit {
       return filteredLanguage.languageName != language;
     })
     this.equivalentLanguages = filteredLanguages;
+    // this.searchWord(" "); TODO TEST
   }
 
   setSelectedEquivalentLanguage(language: string) {
