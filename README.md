@@ -1,4 +1,6 @@
-# EngEstDictionaryFront
+# Open Contribution Dictionary Front End
+
+Users can search words in any or selected language, add new languages and words.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
 
