@@ -38,7 +38,6 @@ export class SearchComponent implements OnInit {
 
   searchWord(wordToSearch: string) {
     if (wordToSearch != "") {
-      console.log(wordToSearch.toLowerCase())
       this.dictionaryService.displayWordsForUser(wordToSearch.toLowerCase(),
         this.getLanguageObjectByLanguageName(this.selectedOriginatingLanguage),
         this.getLanguageObjectByLanguageName(this.selectedEquivalentLanguage))
