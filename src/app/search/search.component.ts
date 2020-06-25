@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LanguageService} from '../services/language.service';
 import {LanguageI} from '../models/language.model';
 import {filter} from 'rxjs/operators';
-import {AddContentService} from '../services/add-content.service';
+import {AddEntryService} from '../services/add-entry.service';
 import {DictionaryService} from '../services/dictionary.service';
 
 @Component({
@@ -39,8 +39,8 @@ export class SearchComponent implements OnInit {
   searchWord(wordToSearch: string) {
     if (wordToSearch != "") {
       this.dictionaryService.displayWordsForUser(wordToSearch.toLowerCase(),
-        this.getLanguageObjectByLanguageName(this.selectedOriginatingLanguage),
-        this.getLanguageObjectByLanguageName(this.selectedEquivalentLanguage))
+        this.languageService.getLanguageObjectByLanguageName(this.selectedOriginatingLanguage),
+        this.languageService.getLanguageObjectByLanguageName(this.selectedEquivalentLanguage))
     }
   }
 
@@ -52,20 +52,11 @@ export class SearchComponent implements OnInit {
       return filteredLanguage.languageName != language;
     })
     this.equivalentLanguages = filteredLanguages;
+    // this.searchWord(" "); TODO TEST
   }
 
   setSelectedEquivalentLanguage(language: string) {
     this.selectedEquivalentLanguage = language;
-  }
-
-  getLanguageObjectByLanguageName(languageToFind: string): LanguageI {
-    if (languageToFind == "Any") {
-      return null;
-    }
-    for(let language of this.languages) {
-      if (language.languageName == languageToFind) {
-        return language;
-      }
-    }
+    this.searchWord(" ");
   }
 }
