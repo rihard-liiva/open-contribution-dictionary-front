@@ -3,12 +3,12 @@
   <p>Translate To</p>
 </div>
 <div class="d-flex justify-content-between">
-  <div>
+  <div *ngIf="dataLoaded">
     <label for="originatingLanguage">
-      <select class="form-control" id="originatingLanguage">
-        <option>Estonian</option>
-        <option>Russian</option>
-        <option>English</option>
+      <select class="form-control" id="originatingLanguage" (change)="setSelectedOriginatingLanguage($event.target.value)">
+        <option *ngFor="let language of languages; let i = index" [value]="languages[i].languageName">
+          {{languages[i].languageName}}
+        </option>
       </select>
     </label>
   </div>
@@ -17,13 +17,13 @@
       <i class="fas fa-exchange-alt"></i>
     </button>
   </div>
-  <div>
+  <div *ngIf="dataLoaded">
     <label for="equivalentLanguage">
-      <select class="form-control" id="equivalentLanguage">
+      <select class="form-control" id="equivalentLanguage" (change)="setSelectedEquivalentLanguage($event.target.value)">
         <option>Any</option>
-        <option>Estonian</option>
-        <option>Russian</option>
-        <option>English</option>
+        <option *ngFor="let language of equivalentLanguages; let i = index" [value]="equivalentLanguages[i].languageName">
+          {{equivalentLanguages[i].languageName}}
+        </option>
       </select>
     </label>
   </div>
@@ -32,9 +32,9 @@
 <!--<label for="typeahead-format"></label>-->
 <!--<input id="typeahead-format" type="text" class="form-control" placeholder="Search for a word"/>-->
 <div class="input-group">
-  <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search For A Word" id="example-search-input">
+  <input [ngModel]="wordToSearch" class="form-control py-2 border-right-0 border" type="search" placeholder="Search For A Word" id="example-search-input" (ngModelChange)="searchWord($event)">
   <span class="input-group-append">
-    <button class="btn btn-outline-secondary border-left-0 border" type="button">
+    <button class="btn btn-outline-secondary border-left-0 border" type="submit">
       <i class="fa fa-search"></i>
     </button>
   </span>

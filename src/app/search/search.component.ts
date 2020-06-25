@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {LanguageService} from '../services/language.service';
+import {LanguageI} from '../models/language.model';
+import {filter} from 'rxjs/operators';
+import {AddContentService} from '../services/add-content.service';
+import {DictionaryService} from '../services/dictionary.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +12,61 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  public languages: LanguageI[];
+  public equivalentLanguages: LanguageI[];
+  public dataLoaded: boolean = false;
+
+  public wordToSearch: string;
+  public selectedOriginatingLanguage: string;
+  public selectedEquivalentLanguage: string;
+
+  constructor(private languageService:LanguageService, private dictionaryService: DictionaryService) { }
 
   ngOnInit(): void {
+    this.languageService.getAllLanguages().then(data => {
+      this.languages = data;
+      // removes the active originating language from equivalent languages
+      this.equivalentLanguages = this.languages.filter(function(filteredLanguage) {
+        // @ts-ignore
+        return filteredLanguage.languageName != data[0].languageName;
+      })
+      this.selectedOriginatingLanguage = this.languages[0].languageName;
+      this.selectedEquivalentLanguage = "Any";
+      this.dataLoaded = true;
+    });
   }
 
+  searchWord(wordToSearch: string) {
+    if (wordToSearch != "") {
+      console.log(wordToSearch.toLowerCase())
+      this.dictionaryService.displayWordsForUser(wordToSearch.toLowerCase(),
+        this.getLanguageObjectByLanguageName(this.selectedOriginatingLanguage),
+        this.getLanguageObjectByLanguageName(this.selectedEquivalentLanguage))
+    }
+  }
+
+  setSelectedOriginatingLanguage(language: string) {
+    this.selectedOriginatingLanguage = language;
+    // removes the active originating language from equivalent languages
+    let filteredLanguages: LanguageI[] = this.languages.filter(function(filteredLanguage) {
+      // @ts-ignore
+      return filteredLanguage.languageName != language;
+    })
+    this.equivalentLanguages = filteredLanguages;
+  }
+
+  setSelectedEquivalentLanguage(language: string) {
+    this.selectedEquivalentLanguage = language;
+  }
+
+  getLanguageObjectByLanguageName(languageToFind: string): LanguageI {
+    if (languageToFind == "Any") {
+      return null;
+    }
+    for(let language of this.languages) {
+      if (language.languageName == languageToFind) {
+        return language;
+      }
+    }
+  }
 }
