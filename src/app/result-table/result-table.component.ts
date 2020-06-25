@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DictionaryService} from '../services/dictionary.service';
+import {DictionaryEntryI} from '../models/dictionary-entry.model';
 
 @Component({
   selector: 'app-result-table',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultTableComponent implements OnInit {
 
-  constructor() { }
+  public wordsToDisplay: DictionaryEntryI[];
+
+  constructor(private dictionaryService: DictionaryService) { }
 
   ngOnInit(): void {
+    this.dictionaryService.wordsObservable.subscribe(message => {
+      this.wordsToDisplay = message;
+    })
   }
-
 }

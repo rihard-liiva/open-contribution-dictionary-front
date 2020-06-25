@@ -1,4 +1,4 @@
-<div class="card">
+<div *ngIf="wordsToDisplay" class="card">
   <table class="table table-striped text-center">
     <thead>
     <tr>
@@ -8,24 +8,10 @@
     </tr>
     </thead>
     <tbody>
-    <!--  <tr *ngFor="let country of countries; index as i">-->
-    <!--    <th scope="row">{{ i + 1 }}</th>-->
-    <!--    <td>-->
-    <!--      <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">-->
-    <!--      {{ country.name }}-->
-    <!--    </td>-->
-    <!--    <td>{{ country.area | number }}</td>-->
-    <!--    <td>{{ country.population | number }}</td>-->
-    <!--  </tr>-->
-      <tr>
-        <td>Laud</td>
-        <td>стол</td>
-        <td>Russian</td>
+      <tr *ngFor="let word of wordsToDisplay; index as i">
+        <td>{{ word.word }}</td>
+        <td>{{ word.equivalent }}</td>
+        <td>{{ word.equivalentLanguage.languageName }}</td>
       </tr>
-    <tr>
-      <td>Laud</td>
-      <td>Table</td>
-      <td>English</td>
-    </tr>
   </table>
 </div>
