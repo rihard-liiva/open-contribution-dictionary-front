@@ -25,7 +25,7 @@
                name="originatingWordInputField">
       </div>
       <div class="input-group">
-        <select class="form-control language-select" id="originatingLanguage"
+        <select required class="form-control language-select" id="originatingLanguage"
                 (change)="setSelectedLanguage($event.target.value)">
           <option hidden disabled selected value>Select the originating language</option>
           <option *ngFor="let language of languages; let i = index" [value]="languages[i].languageName">
@@ -40,7 +40,7 @@
                name="equivalentWordInputField">
       </div>
       <div class="input-group">
-        <select *ngIf="languageSelected" class="form-control language-select" id="equivalentLanguage"
+        <select required *ngIf="languageSelected" class="form-control language-select" id="equivalentLanguage"
                 (change)="setEquivalentLanguage($event.target.value)">
           <option *ngFor="let language of equivalentLanguages; let i = index"
                   [value]="equivalentLanguages[i].languageName">
@@ -63,14 +63,14 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form (ngSubmit)="addLanguageToDatabase(addLanguageForm)" #addLanguageForm="ngForm">
       <div class="form-group">
         <label>Language name in English</label>
-        <input type="text" class="form-control">
+        <input required type="text" class="form-control" [(ngModel)]="languageNameInputField" name="languageNameInputField">
+      </div>
+      <div class="modal-footer" style="margin-top: 50px">
+        <button type="submit" class="btn btn-outline-dark">Add Language</button>
       </div>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Add Language</button>
   </div>
 </ng-template>

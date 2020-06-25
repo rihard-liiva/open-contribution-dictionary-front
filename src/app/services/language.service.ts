@@ -38,4 +38,17 @@ export class LanguageService {
     }
   }
 
+  public languageAlreadyExists(language: string): boolean {
+    for (let loopedLanguage of this.languages) {
+      if (loopedLanguage.languageName.toLowerCase() == language.toLowerCase()) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public capitalizeLanguage(languageName: string): string {
+    return languageName.charAt(0).toUpperCase() + languageName.slice(1);
+  }
+
 }
