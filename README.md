@@ -4,6 +4,9 @@ Users can search words in any or selected language, add new languages and words.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
 
+## List of words included in the dictionary (currently)
+![alt text](https://cdn.discordapp.com/attachments/453224989383196673/725769984898498580/unknown.png "List of words")
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
