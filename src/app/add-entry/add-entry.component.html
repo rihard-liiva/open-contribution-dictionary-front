@@ -21,7 +21,7 @@
     <form (ngSubmit)="addWordToDictionary(addWordForm)" #addWordForm="ngForm">
       <div class="input-group">
         <label for="originatingWord">Word</label>
-        <input type="text" class="form-control" id="originatingWord" [(ngModel)]="originatingWordInputField"
+        <input required type="text" class="form-control" id="originatingWord" [(ngModel)]="originatingWordInputField"
                name="originatingWordInputField">
       </div>
       <div class="input-group">
@@ -36,7 +36,7 @@
       <br>
       <div class="input-group">
         <label for="equivalentWord">Equivalent</label>
-        <input type="text" class="form-control" id="equivalentWord" [(ngModel)]="equivalentWordInputField"
+        <input required type="text" class="form-control" id="equivalentWord" [(ngModel)]="equivalentWordInputField"
                name="equivalentWordInputField">
       </div>
       <div class="input-group">

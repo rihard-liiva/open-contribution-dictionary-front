@@ -3,7 +3,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {LanguageI} from '../models/language.model';
 import {LanguageService} from '../services/language.service';
 import {AddEntryService} from '../services/add-entry.service';
-import {DictionaryEntryI} from '../models/dictionary-entry.model';
 import {NgForm} from '@angular/forms';
 
 @Component({
