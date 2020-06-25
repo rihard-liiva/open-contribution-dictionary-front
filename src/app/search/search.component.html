@@ -12,11 +12,6 @@
       </select>
     </label>
   </div>
-  <div>
-    <button class="btn">
-      <i class="fas fa-exchange-alt"></i>
-    </button>
-  </div>
   <div *ngIf="dataLoaded">
     <label for="equivalentLanguage">
       <select class="form-control" id="equivalentLanguage" (change)="setSelectedEquivalentLanguage($event.target.value)">

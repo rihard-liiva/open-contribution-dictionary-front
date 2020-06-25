@@ -62,6 +62,7 @@ export class AddEntryComponent implements OnInit {
       this.addEntryService.makePostRequestNewDictionaryEntry(dictionaryEntry).then(r => {
         this.modalService.dismissAll()
         this.selectedEquivalentLanguage = null;
+        window.location.reload();
       });
     } else {
       alert("Please fill all the fields")
