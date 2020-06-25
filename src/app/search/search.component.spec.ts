@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchComponent } from './search.component';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('DictionaryComponent', () => {
   let component: SearchComponent;
@@ -8,6 +9,7 @@ describe('DictionaryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       declarations: [ SearchComponent ]
     })
     .compileComponents();
